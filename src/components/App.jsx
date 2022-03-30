@@ -54,7 +54,7 @@ export default function App() {
         if (elements.hits.length === 0) {
           window.alert(`No images found by keyword ${search}`)
         }
-        setItems([...items, ...elements.hits]);
+        setItems(prevItems => ([...prevItems, ...elements.hits]));
         setHits([...elements.hits]);
       })
       .finally(() => { setSpinner(false) }).catch(error => console.log(error));
